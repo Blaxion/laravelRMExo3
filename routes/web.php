@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CoordonneeController;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\TestimonialController;
+use App\Models\Client;
+use App\Models\Coordonnee;
+use App\Models\Section;
+use App\Models\Testimonial;
+use App\Models\Welcomeheadersection;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +23,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $testimonials = Testimonial::all();
+    $sections =Section::all();
+    $clients=Client::all();
+    $welcomeheadersections=Welcomeheadersection::all();
+    return view('welcome',compact ('testimonials','sections','clients','welcomeheadersections'));
 });
+Route::get('/contact', function () {
+    $sections =Section::all();
+    $coordonnees = Coordonnee::all();
+    return view('pages.front.contact',compact('sections','coordonnees'));
+});
+
+Route::get('/home', function () {
+    $sections =Section::all();
+    $clients=Client::all();
+    $welcomeheadersections=Welcomeheadersection::all();
+    return view('home',compact ('testimonials','sections','clients','welcomeheadersections'));
+});
+
+Route::resource('testimonial', TestimonialController::class );
+Route::resource('section', SectionController::class );
+Route::resource('client', ClientController::class );
+Route::resource('coordonnee', CoordonneeController::class );
+Route::resource('welcomeheadersection', Welcomeheadersection::class );
+
