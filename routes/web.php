@@ -29,6 +29,7 @@ Route::get('/', function () {
     $welcomeheadersections=Welcomeheadersection::all();
     return view('welcome',compact ('testimonials','sections','clients','welcomeheadersections'));
 });
+
 Route::get('/contact', function () {
     $sections =Section::all();
     $coordonnees = Coordonnee::all();
@@ -47,4 +48,3 @@ Route::resource('section', SectionController::class );
 Route::resource('client', ClientController::class );
 Route::resource('coordonnee', CoordonneeController::class );
 Route::resource('welcomeheadersection', Welcomeheadersection::class );
-
