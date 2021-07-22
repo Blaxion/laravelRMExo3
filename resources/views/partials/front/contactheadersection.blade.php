@@ -6,8 +6,8 @@
                     <div class="display-tc">
                         <div class="row">
                             <div class="col-md-8 animate-box">
-                                <h1 class="no-margin">Contact</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia facilis, accusamus iusto animi.</p>
+                                <h1 class="no-margin">{{$sections[1]->titre}}</h1>
+                                <p>{{$sections[1]->sous_titre}}</p>
                             </div>
                         </div>
                     </div>

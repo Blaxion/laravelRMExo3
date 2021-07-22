@@ -71,7 +71,10 @@ class WelcomeheadersectionController extends Controller
     public function update(Request $request, Welcomeheadersection $welcomeheadersection)
     {
         $update = $welcomeheadersection;
+        $update->titre = $request->titre;
+        $update->sous_titre = $request->sous_titre;
         $update->img = $request->img;
+        $update->button = $request->button;
         $update->save();
         return redirect()->back();
     }

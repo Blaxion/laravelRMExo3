@@ -4,11 +4,13 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CoordonneeController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\WelcomeheadersectionController;
 use App\Models\Client;
 use App\Models\Coordonnee;
 use App\Models\Section;
 use App\Models\Testimonial;
 use App\Models\Welcomeheadersection;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,14 +39,24 @@ Route::get('/contact', function () {
 });
 
 Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/setstatique', function () {
     $sections =Section::all();
     $clients=Client::all();
     $welcomeheadersections=Welcomeheadersection::all();
-    return view('home',compact ('testimonials','sections','clients','welcomeheadersections'));
+    $coordonnees = Coordonnee::all();
+    return view('pages.back.statique',compact ('sections','clients','welcomeheadersections','coordonnees'));
+});
+
+Route::get('/setdynamique', function () {
+    $testimonials =Testimonial::all();
+    return view('pages.back.dynamique',compact('testimonials'));
 });
 
 Route::resource('testimonial', TestimonialController::class );
 Route::resource('section', SectionController::class );
 Route::resource('client', ClientController::class );
 Route::resource('coordonnee', CoordonneeController::class );
-Route::resource('welcomeheadersection', Welcomeheadersection::class );
+Route::resource('welcomeheadersection', WelcomeheadersectionController::class );

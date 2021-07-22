@@ -71,7 +71,8 @@ class SectionController extends Controller
     public function update(Request $request, Section $section)
     {
         $update = $section;
-        $update->img = $request->img;
+        $update->titre= $request->titre;
+        $update->sous_titre= $request->sous_titre;
         $update->save();
         return redirect()->back();
     }

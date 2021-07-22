@@ -71,7 +71,12 @@ class CoordonneeController extends Controller
     public function update(Request $request, Coordonnee $coordonnee)
     {
         $update = $coordonnee;
-        $update->img = $request->img;
+        $update->titre = $request->titre;
+        $update->sous_titre = $request->sous_titre;
+        $update->info1 = $request->info1;
+        $update->info2 = $request->info2;
+        $update->info3 = $request->info3;
+        $update->info4 = $request->info4;
         $update->save();
         return redirect()->back();
     }

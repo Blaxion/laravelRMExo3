@@ -21,8 +21,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{request()->is('setfruits')?'active':''}}" href="/setfruits">set Fruits</a>
-                        <a class="nav-link {{request()->is('setvegetables')?'active':''}}" href="/setvegetables">set Vegetables</a>
+                        <a class="nav-link {{request()->is('setfruits')?'active':''}}" href="/setdynamique">set Dynamique</a>
+                        <a class="nav-link {{request()->is('setvegetables')?'active':''}}" href="/setstatique">set Statique</a>
                     </div>
                 </div>
             </div>
